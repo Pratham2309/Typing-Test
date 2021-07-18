@@ -6,8 +6,16 @@ const start = document.getElementById('start');
 const end = document.getElementById('end');
 const ac = document.getElementById('accuracy');
 const www = document.getElementById('wpm');
+const msg = document.getElementById('msg');
 
 var ttt;
+text.addEventListener('input' , function() {
+    var av = text.value.split('');
+    if(av[av.length-1]=="\n"){
+        end.click();
+    }
+});
+
 async function getData() {
     const response = await fetch(api);
     return await response.json();
@@ -15,6 +23,7 @@ async function getData() {
 
 
 async function getNew() {
+    text.focus();
     const datais = await getData();
     const quote = datais.content;
     display.innerHTML = "";
@@ -43,33 +52,36 @@ start.addEventListener("click", function () {
     www.innerHTML = "";
     start.type = "hidden";
     end.type = "button";
+    msg.style.display = "inline";
     getNew();
 });
 
 end.addEventListener("click" , function() {
     clearInterval(ttt);
-    // text.keyup(function(e){
-    //     e.preventDefault();
-    // });
     text.disabled = true;
     var av = text.value.split(' ');
     var aq = display.querySelectorAll('span');
     let corr=0,incorr=0;
     let n = Math.min(av.length,aq.length);
     let k = 0;
-    // console.log(av);
     for(let i=0; i<n; i++){
        
-        if(av[i]==""){
-            console.log('hi');
+        if(av[i]=="" || av[i]=="\n"){
             continue;
         }
         let strr = aq[k].innerText;
+        let str22 = "";
         if(i<aq.length-1)
             strr = strr.substring(0 , strr.length-1);
-        // console.log('typed' , av[i]);
-        // console.log('actual' ,strr);
-        if(av[i]==strr){
+        if(av[i][av[i].length-1]=="\n"){
+            for(let y=0; y<av[i].length-1; y++){
+                str22 = str22 + av[i][y];
+            }
+        }
+        else{
+            str22 = av[i];
+        }
+        if(str22==strr){
             aq[k].classList.add('correct');
             aq[k].classList.remove('incorrect');
             corr++;
@@ -89,4 +101,5 @@ end.addEventListener("click" , function() {
     www.innerHTML = "Accuracy is <b>" + Math.round(accuracy) + "%</b>  &nbsp &nbsp WPM : <b>" + wpm + "</b>"; 
     start.type = "button";
     end.type = "hidden";
+    msg.style.display = "none";
 });
