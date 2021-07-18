@@ -120,8 +120,8 @@ body,
     color: red;
     text-decoration: underline;
 }
-/* 
-@media screen and (max-width: 512px) {
+
+@media only screen and (max-width: 512px) {
     #hd{
         font-size: 1rem;
     }
@@ -140,4 +140,4 @@ body,
 
     }
 }
- */
+
