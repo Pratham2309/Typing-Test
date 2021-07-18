@@ -1,4 +1,4 @@
-const api = 'http://api.quotable.io/random';
+const api = 'https://api.quotable.io/random';
 const display = document.getElementById('display');
 const text = document.getElementById('text');
 const timer = document.getElementById('timer');
