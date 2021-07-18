@@ -81,6 +81,11 @@ body,
     font-weight: bold;
 }
 
+#msg {
+    color : rgb(226, 183, 20);
+    display: none;
+}
+
 #text {
     background-color: rgb(212, 200, 155);
     border: 2px solid #a1922e;
@@ -121,23 +126,22 @@ body,
     text-decoration: underline;
 }
 
-@media only screen and (max-width: 512px) {
-    #hd{
+@media only screen and (max-width: 412px) {
+    /* Styles */
+    #hd {
         font-size: 1rem;
     }
-    #timer{
+    #timer {
         top: 4rem;
         font-size: 2.3rem;
     }
-    #aaa{
-        margin-top : 2rem;
+    #aaa {
+        margin-top: 2rem;
         margin-bottom: 0rem;
         font-size: 1rem;
     }
-    #abc{
+    #abc {
         margin-bottom: 2rem;
         font-size: 1rem;
-
     }
 }
-
