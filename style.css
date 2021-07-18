@@ -121,7 +121,7 @@ body,
     text-decoration: underline;
 }
 
-@media screen and (max-width: 412px) {
+@media screen and (max-width: 512px) {
     #hd{
         font-size: 1rem;
     }
