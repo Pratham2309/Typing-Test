@@ -61,9 +61,6 @@ end.addEventListener("click", function () {
     text.disabled = true;
     var av = text.value.split(' ');
     var aq = display.querySelectorAll('span');
-    let corr = 0, incorr = 0;
-    let n = Math.min(av.length, aq.length);
-    let k = 0;
     let ii = 0;
     while (ii < av.length) {
         if (av[ii] == "") {
@@ -72,6 +69,11 @@ end.addEventListener("click", function () {
             ++ii;
         }
     }
+    
+    let corr = 0, incorr = 0;
+    let n = Math.min(av.length, aq.length);
+    let k = 0;
+    
     for (let i = 0; i < n; i++) {
         if(av[i]=="\n"){
             break;
