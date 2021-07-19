@@ -64,6 +64,14 @@ end.addEventListener("click" , function() {
     let corr=0,incorr=0;
     let n = Math.min(av.length,aq.length);
     let k = 0;
+    let ii = 0;
+    while (ii < av.length) {
+        if (av[ii] == "") {
+            av.splice(ii, 1);
+        } else {
+            ++ii;
+        }
+    }
     for(let i=0; i<n; i++){
        
         if(av[i]=="" || av[i]=="\n"){
